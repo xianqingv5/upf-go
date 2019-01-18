@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>javaScript过滤特殊字符</title>
+<style type="text/css">
+	body{  
+        width:80%;  
+        background-color:#FFC;  
+        height:100px;  
+        font-size:14px;  
+        font-family:"Times New Roman", Times, serif;  
+        font-stretch:expanded;  
+        font-style:inherit;  
+        font-variant:inherit;  
+        font-weight:bold;  
+    }  
+    #div1{  
+        text-align:center;  
+        width:100%;  
+        height:100%;  
+        line-height:inherit;  
+    }  
+    #btn{  
+        font:Georgia, "Times New Roman", Times, serif;  
+        font-size-adjust:inherit;  
+        font-weight:bold;  
+        background-color:#C96;  
+        alignment-adjust:after-edge;  
+        alignment-baseline:baseline;  
+        word-break:break-all;  
+        width:120px;  
+        height:30px;  
+        font-size:16px;  
+        animation:ease;  
+    }  
+
+</style>
+<script type="text/javascript">
+ /**  
+      * 过滤字符串函数  
+      **/  
+    function filterStr(str)  
+    {  
+        var pattern = new RegExp("[`~!@#$^&*()=|{}':;',\\[\\].<>/?~！@#￥……&*（）——|{}【】‘；：”“'。，、？%+_]");  
+        var specialStr = "";  
+        for(var i=0;i<str.length;i++)  
+        {  
+             specialStr += str.substr(i, 1).replace(pattern, '');   
+        }  
+        return specialStr;  
+    }  
+      
+    /**  
+      * 检测过滤字符串函数  
+      **/  
+    function checkStr()  
+    {  
+        var str = document.getElementById("pContent").innerHTML;  
+        alert("过滤之前的字符串：" + str);  
+        str = filterStr(str);  
+        alert("过滤之后的字符串：" + str);  
+    }  
+</script>
+</head>
+
+<body>
+<div id="div1">
+<p id="pContent">张三huhnjhj$%$^%^%&^*&<>?{}{{[]()_+|@~`$378748hyfgtyt35451fdhjdsh&%^^&$#%%&^^*&(*%$%$f4857485
+</p>
+<input type="button" id="btn" name="btn" value="过滤" onclick="checkStr()"/>  
+</div>
+</body>	
+</html>
